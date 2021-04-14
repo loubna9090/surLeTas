@@ -1,7 +1,7 @@
 <?php
 
 class Client{
-    private $idClient; 
+    public $idClient; 
     private $lastNameClient; 
     private $firstNameClient; 
     private $phoneClient; 
@@ -11,7 +11,7 @@ class Client{
     private $emailClient; 
     private $mdpClient;
                 
-    function getIdClient() {
+    function getidClient() {
         return $this->idClient;
     }
     function getLastNameClient(){
@@ -91,8 +91,47 @@ class Client{
     $mdpClient=$client->getMdpClient() ;
     $req->bindParam('mdpClient', $mdpClient);
     
-    $nb=$req->execute();
+    $req->execute();
         $_SESSION['alert']="le client a été ajouté !" ;
         return $_SESSION['alert'] ;
 }
+
+
+    public static function verifier($emailClient, $mdpClient){
+        $req=MonPdo::getInstance()->prepare("select * from client where emailClient =:emailClient and mdpClient=:mdpClient") ;
+        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'client') ;
+        $req->bindParam('emailClient', $emailClient);
+        $req->bindParam('mdpClient', $mdpClient);
+        $req->execute();
+        $leResultat=$req->fetchAll();
+        $nb_lignes= count($leResultat) ;
+        
+        if ($nb_lignes==0) 
+        {
+        $rep= false;
+        }
+        else
+        {
+        $rep=true ;
+        }   
+                
+        return $rep ;
+       }
+       
+
+       
+    public static function deconnecter()
+       {
+           unset($_SESSION["autorisation"]) ;
+       }
+
+
+    public static function recurpidClient(){
+        $req=MonPdo::getInstance()->prepare("select idClient from client where emailClient=:emailClient");
+        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'client') ;
+        $req->execute(array(':emailClient'=>$emailClient));
+        $leResultat=$req->fetch();
+        return $leResultat ;
+    }
+
 }

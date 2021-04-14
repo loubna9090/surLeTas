@@ -18,6 +18,13 @@ a:hover, a:visited, a:link, a:active
     color: #1fd81f;
     border-color: #1fd81f;
 }
+.btn-outline-tasc a{
+    color: #1fd81f;
+    padding: 6px 15px;
+    border-radius: 5px;
+    border: 3px solid #1fd81f;
+}
+
 .btn-tas_color{
 	background-color: #1fd81f;
 	color: white;
@@ -31,8 +38,13 @@ a:hover, a:visited, a:link, a:active
     color: black !important;
     font-weight: 500;
 }
-.bg-black{
-	background-color: black;
+.bg-black-menu {
+    background-color: black;
+    width: 100%;
+    border-bottom: 1px solid #1fd81f96;
+}
+.bg-black {
+    background-color: black;
 }
 .txt-white{
 	color: white;
@@ -54,9 +66,12 @@ a:hover, a:visited, a:link, a:active
 .nav-btn .btn-outline-tas_color {
     margin: 0 15px;
 }
-header{
-    border-bottom: 1px solid #1b741b;
+.nav-btn .btn-outline-tas_color a{
+    color: #1fd81f;
 }
+/*header{
+    border-bottom: 1px solid #1b741b;
+}*/
 .navbar-collapse {
     flex-basis: 100%;
     flex-grow: 0;

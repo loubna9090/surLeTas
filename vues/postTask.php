@@ -1,10 +1,11 @@
-
+<?php $displayHeader = true; ?>
 <section id="slider"><!-- slider  -->
   <div class="container-fluid">
     <div class="row bg-black  block_slide">
-      <div class="col-lg-6">
+      <div class="col-lg-6 w-50">
         <div class="title"> 
-          <h1 class="txt-white"> Exprimer votre besoin</h1>
+
+          <h1 class="txt-white"> Exprimer votre besoin <i class="fas fa-pen-alt tas_color"></i></h1>
           <h2 class="tas_color  my-3 "> On s'occupe du reste</h2>
         </div>
         
@@ -32,7 +33,22 @@
 
       <input class="form-control" type="file" id="formFile" name="docTask">
     </div>
-    <div class="mb-3 col-md-12">
+     <div class="mb-3 col-md-12">
+      <label  class="form-label">Domaine du projet</label>
+      <select class="form-select" aria-label="Default select example"   name="nameCat">
+      <option selected >Sélectionné</option>
+      <?php 
+      foreach($categories as $categorie)
+        {
+
+      echo "<option value='".$categorie->getIdCat() . "'>".$categorie->getNameCat() ."</option>";
+       } 
+      ?>
+      
+
+    </select>
+    </div>  
+    <!-- <div class="mb-3 col-md-12">
       <label for="inputEmail4" class="form-label">Domaine du projet</label>
       <select class="form-select" aria-label="Default select example" name="nameCat">
       <option selected >Sélectionné</option>
@@ -49,7 +65,7 @@
       <option value="11">Website Development</option>
       <option value="12">Game Development</option>
     </select>
-    </div>  
+    </div>  --> 
     <div class="mb-3 col-md-12">
     <label for="inputEmail4" class="form-label">Email</label>
     <input type="email" class="form-control" id="inputEmail4" name="emailClient">

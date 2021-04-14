@@ -5,34 +5,37 @@ require_once "modeles/Categorie.class.php" ;
 switch($action)
 {
     case "posTask" :
+        $categories=categorie::insertCat();
 		include ("vues/postTask.php") ;
 		break ;
                 
     	case "valideTask" :
-                echo 'on est dans la validTask';
-                /*var_dump($_POST["nameTask"]);*/
-                
-        $task= new task() ;
-        $task->setNameTask($_POST["nameTask"]) ;
-        $task->setTopicTask($_POST["topicTask"]) ;
-        $task->setDocTask(basename($_FILES["docTask"]["name"])) ;
-        task::ajouter($task);
+        
+              /*var_dump($_POST["nameTask"]);*/
         $client=new client() ;
         $client->setEmailClient($_POST["emailClient"]) ;
-        $client->setMdpClient($_POST["mdpClient"]) ;
+        $client->setMdpClient(md5($_POST["mdpClient"])) ;
         $client->setLastNameClient($_POST["lastNameClient"]) ;
         $client->setFirstNameClient($_POST["firstNameClient"]) ;
         $client->setAdressClient($_POST["adressClient"]) ;
         $client->setPhoneClient($_POST["phoneClient"]) ;
         $client->setCountryClient($_POST["countryClient"]) ;
         $client->setCityClient($_POST["cityClient"]) ;
-        $categorie=new categorie() ;
+        $task= new task() ;
+        $task->setNameTask($_POST["nameTask"]) ;
+        $task->setTopicTask($_POST["topicTask"]) ;
+        $task->setDocTask(basename($_FILES["docTask"]["name"])) ; 
+        $categorie=new categorie();
         $categorie->setNameCat($_POST["nameCat"]) ;
+        client::insertClient($client);
 
-         
-       client::insertClient($client);
-        categorie::insertCat($categorie);
-
+        task::ajouter($task);
+        include ("vues/taskOk.php");
      /*var_dump($client->getLastNameClient());    */    
         break ;
+
+        case "showTask":
+        $tasks=task::TaskClient();
+           include ("vues/showTasksCli.php") ;
+            break;
 }

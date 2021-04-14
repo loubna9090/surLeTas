@@ -1,3 +1,4 @@
+<?php $displayHeader = true; ?>
 <section id="slider"><!-- slider  -->
   <div class="container-fluid">
     <div class="row bg-black  block_slide">

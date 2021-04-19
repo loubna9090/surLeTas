@@ -33,6 +33,7 @@ switch($uc){
 
 	 case "client" :
 	 include ("controleurs/controleurClient.php");
+	
 	 echo "on est dans la class client";
 	 break;
 }

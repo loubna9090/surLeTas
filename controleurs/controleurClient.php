@@ -11,6 +11,7 @@ switch($choix)
 	
 	case "verif":
 		$id=client::recurpidClient($_POST["emailClient"]);
+		$_SESSION['idclient']=$id;
     	$rep=Client::verifier($_POST["emailClient"], md5($_POST["mdpClient"])) ; 
 		if($rep==true){
 			$_SESSION["autorisation"]="OK" ;

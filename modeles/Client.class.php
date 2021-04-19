@@ -131,6 +131,7 @@ class Client{
         $req->execute(['idClient'=>$mail]);
         $leResultat=$req->fetchAll();
         var_dump($leResultat);
+        
         return $leResultat;
     }
 

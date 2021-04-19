@@ -39,9 +39,9 @@ public static function getInstance()
 
 
 $adssmail= "loubnadamri12@gmail.com";
-
+/*
    function recurpidClient($adssmail){
-/*   	var_dump($adssmail);*/
+  	var_dump($adssmail);
         $req=MonPdo::getInstance()->prepare("select idClient from client where emailClient=:idClient");
         $req->execute(['idClient'=>$adssmail]);
         $leResultat=$req->fetchAll();
@@ -49,5 +49,16 @@ $adssmail= "loubnadamri12@gmail.com";
         return $leResultat;
     }
     recurpidClient($adssmail);
-    echo "ok";
+    echo "ok";*/
+$recupCli=104;
+    function TaskClient($recupCli){
+       
+        $req=MonPdo::getInstance()->prepare("select * from task where idClient=?") ;
+    $req->execute(['idClient'  =>104]);
+    echo 'ok';
+    var_dump($recupCli);
+    $lesResulats=$req->fetch();
+   var_dump($lesResulats);
+    //return $lesResulats ;
+    }
 ?>

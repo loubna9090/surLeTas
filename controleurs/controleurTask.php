@@ -35,6 +35,7 @@ switch($action)
         break ;
 
         case "showTask":
+        $recupCli=client::recurpidClient($repClient);
         $tasks=task::TaskClient();
            include ("vues/showTasksCli.php") ;
             break;

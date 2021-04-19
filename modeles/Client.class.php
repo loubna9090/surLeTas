@@ -11,7 +11,7 @@ class Client{
     private $emailClient; 
     private $mdpClient;
                 
-    function getidClient() {
+    function getIdClient() {
         return $this->idClient;
     }
     function getLastNameClient(){
@@ -39,6 +39,7 @@ class Client{
         return $this->mdpClient;
     }
     /*les setter*/
+
     function setLastNameClient($lastNameClient){
         return $this->lastNameClient=$lastNameClient;
     }
@@ -54,7 +55,6 @@ class Client{
      function setCityClient($cityClient){
         return $this->cityClient=$cityClient;
     }
-    
     function setEmailClient($emailClient){
         return $this->emailClient=$emailClient;
     }
@@ -126,12 +126,13 @@ class Client{
        }
 
 
-    public static function recurpidClient(){
-        $req=MonPdo::getInstance()->prepare("select idClient from client where emailClient=:emailClient");
-        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'client') ;
-        $req->execute(array(':emailClient'=>$emailClient));
-        $leResultat=$req->fetch();
-        return $leResultat ;
+    public static function recurpidClient($mail){
+        $req=MonPdo::getInstance()->prepare("select idClient from client where emailClient=:idClient");
+        $req->execute(['idClient'=>$mail]);
+        $leResultat=$req->fetchAll();
+        var_dump($leResultat);
+        return $leResultat;
     }
+
 
 }

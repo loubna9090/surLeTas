@@ -1,4 +1,5 @@
 <?php
+/*$adssmail= "loubnadamri12@gmail.com";*/
 if(isset($_GET["choix"])){
 $choix=$_GET["choix"] ;
 
@@ -9,12 +10,13 @@ switch($choix)
 		break;
 	
 	case "verif":
-		client::recurpidClient();
+		$id=client::recurpidClient($_POST["emailClient"]);
     	$rep=Client::verifier($_POST["emailClient"], md5($_POST["mdpClient"])) ; 
 		if($rep==true){
 			$_SESSION["autorisation"]="OK" ;
+			$tasks=task::TaskClient($id);
 		  	include("vues/dashboardClient.php") ;
-			// $clientTask=task::TaskClient();
+
 			// include ("vues/listetask.php") ;
 			}
 			else

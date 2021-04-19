@@ -20,6 +20,7 @@ class Task{
      function getTopicTask() {
         return $this->topicTask;
     }
+
      function setTopicTask($topicTask) {
         $this->topicTask=$topicTask;
     }
@@ -36,7 +37,7 @@ class Task{
         $this->idCat=$idCat;
     }
 
-    public function __construct(Client $idClient ) { 
+    /*public function __construct(Client $idClient ) { 
       if(is_null($idClient)) $idClient = new Client();
       $this->setCli($idClient);
    }
@@ -46,7 +47,7 @@ class Task{
     }
     public function setidClient(client $idClient) {
         $this->client=$idClient;
-    }
+    }*/
 
     public static function ajouter(task $task){
         $req=MonPdo::getInstance()->prepare("insert into task ( docTask, nameTask, topicTask, idCat, idClient) values(:docTask, :nameTask, :topicTask,'" .  $_POST["nameCat"]. "', LAST_INSERT_ID() )") ;
@@ -61,17 +62,12 @@ class Task{
         return $_SESSION['alert'] ;
     }  
 
-   public static function TaskClient(){
-             // if (isset($idClient)) {
-        $req=MonPdo::getInstance()->prepare("select * from task INNER JOIN client on client.idClient=:idClient ") ;
-    $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'task') ;
-    $req->execute(array(':idClient'=>$idClient));
-    $lesResulats=$req->fetchAll();
+   public static function TaskClient($recupCli){
+        $req=MonPdo::getInstance()->prepare("select * from task where idClient=?") ;
+    $req->execute([$recupCli]);
+    $lesResulats=$req->fetch();
+//    var_dump($lesResulats);
     return $lesResulats ;
-             // }
-             // else {
-             //     echo('erreur');
-             // }
     }
 
    

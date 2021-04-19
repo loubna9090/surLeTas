@@ -44,6 +44,29 @@
    <section class="main">
      <h1>Bienvenu dans <br> le tableau de bord</h1>
               <div class="text-center">
+                <?php
+if (is_array($tasks))
+{
+      foreach($tasks as $task)
+        {
+         
+         var_dump($task);
+          echo "<div class='row'><div class='card text-center m-3' >
+              
+                                            <div class='card-body'>
+                <h5 class='card-title text-danger'>".$task->getNameTask() ."</h5>
+                <h5 class='card-title text-danger'>".$task->getTopicTask() ."</h5>
+                
+              
+                                            </div>
+          </div></div>" ;
+  
+    }
+        }else{
+          echo "erreur";
+        }
+        ?>
+
       
     </div>
    </section>

@@ -1,3 +1,6 @@
+<?php
+if($_SESSION["autorisation"]=="OK"){
+  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
  <head>
@@ -22,8 +25,8 @@
        <div class="item">
          <a class="sub-btn"><i class="fas fa-tasks "></i>Projets<i class="fas fa-angle-right dropdown"></i></a>
          <div class="sub-menu">
-           <a href="index.php?uc=task&action=showTask" class="sub-item">Afficher</a>
-           <a href="#" class="sub-item">Ajouter </a>
+           <a href="index.php?uc=client&choix=showTask" class="sub-item">Afficher</a>
+           <a href="index.php?uc=client&choix=addTask" class="sub-item">Ajouter </a>
            <a href="#" class="sub-item">Modifier</a>
            <a href="#" class="sub-item">Supprimer</a>
          </div>
@@ -42,33 +45,56 @@
      </div>
    </div>
    <section class="main">
-     <h1>Bienvenu dans <br> le tableau de bord</h1>
-              <div class="text-center">
-                <?php
+    <div class="container">
+     <h1 class="title1">Bienvenu dans le tableau de bord</h1>
+ <div class="row">
+ <div class="col-md-12 ">
+<h2 class="title2">Liste des projets </h2>
+      
+    </div>
+</div>
+<div class="row">
+ <div class="col-md-12">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Titre </th>
+      <th scope="col">Description </th>
+      <th scope="col">Date</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+                    <?php 
+
 if (is_array($tasks))
 {
-      foreach($tasks as $task)
+      foreach((array)$tasks as $task)
         {
          
-         var_dump($task);
-          echo "<div class='row'><div class='card text-center m-3' >
-              
-                                            <div class='card-body'>
-                <h5 class='card-title text-danger'>".$task->getNameTask() ."</h5>
-                <h5 class='card-title text-danger'>".$task->getTopicTask() ."</h5>
-                
-              
-                                            </div>
-          </div></div>" ;
+/*         var_dump($task);*/
+          echo "
+    <tr>
+      <th scope='row'>".$task->getIdTask() ."</th>
+      <td>".$task->getNameTask() ."</td>
+      <td>".$task->getTopicTask() ."</td>
+      <td>".$task->getDateTask() ."</td>
+      <td>".$task->getStatusTask() ."<i class='fas fa-circle color-att'></i></td>
+
+    </tr>
+    " ;
   
     }
         }else{
           echo "erreur";
         }
         ?>
-
-      
-    </div>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
    </section>
 
    <script type="text/javascript">
@@ -94,4 +120,6 @@ if (is_array($tasks))
 
  </body>
 </html>
-      
+      <?php
+}
+  ?>

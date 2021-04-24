@@ -7,7 +7,10 @@ class Task{
     private $topicTask;
     private $idCat; 
     private $idClient; 
+    private $statusTask;
+    private $dateTask;
 
+//les getters 
     function getIdTask() {
         return $this->idTask;
     }
@@ -20,7 +23,20 @@ class Task{
      function getTopicTask() {
         return $this->topicTask;
     }
+    function getStatusTask() {
+        return $this->statusTask;
+    }
+    function getDateTask() {
+        return $this->dateTask;
+    }
 
+// les setters
+    function setDateTask($dateTask) {
+        $this->dateTask=$dateTask;
+    }
+    function setStatusTask($statusTask) {
+        $this->statusTask=$statusTask;
+    }
      function setTopicTask($topicTask) {
         $this->topicTask=$topicTask;
     }
@@ -37,20 +53,12 @@ class Task{
         $this->idCat=$idCat;
     }
 
-    /*public function __construct(Client $idClient ) { 
-      if(is_null($idClient)) $idClient = new Client();
-      $this->setCli($idClient);
-   }
+// les methodes
 
-     public function getidClient() {
-         return $this->idClient;
-    }
-    public function setidClient(client $idClient) {
-        $this->client=$idClient;
-    }*/
-
-    public static function ajouter(task $task){
-        $req=MonPdo::getInstance()->prepare("insert into task ( docTask, nameTask, topicTask, idCat, idClient) values(:docTask, :nameTask, :topicTask,'" .  $_POST["nameCat"]. "', LAST_INSERT_ID() )") ;
+    // methode insertion des taches 
+    public static function add(task $task)
+    {
+        $req=MonPdo::getInstance()->prepare("insert into task ( docTask, nameTask, topicTask, idCat, idClient, dateTask) values(:docTask, :nameTask, :topicTask,'" .  $_POST["nameCat"]. "', LAST_INSERT_ID(), NOW() )") ;
         $docTask=$task->getDocTask() ;
         $req->bindParam('docTask', $docTask);
         $nameTask=$task->getNameTask() ;
@@ -62,12 +70,29 @@ class Task{
         return $_SESSION['alert'] ;
     }  
 
-   public static function TaskClient($recupCli){
-        $req=MonPdo::getInstance()->prepare("select * from task where idClient=?") ;
-    $req->execute([$recupCli]);
-    $lesResulats=$req->fetch();
-//    var_dump($lesResulats);
-    return $lesResulats ;
+    // methode d'insertion des tache dans la compte client 
+    public static function taskDbor (task $task)
+    {
+        $req=MonPdo::getInstance()->prepare("insert into task ( docTask, nameTask, topicTask, idCat, idClient, dateTask) values(:docTask, :nameTask, :topicTask,'" .  $_POST["nameCat"]. "','".$_SESSION['idClient']."', NOW())") ;
+        $docTask=$task->getDocTask() ;
+        $req->bindParam('docTask', $docTask);
+        $nameTask=$task->getNameTask() ;
+        $req->bindParam('nameTask', $nameTask);
+        $topicTask=$task->getTopicTask() ;
+        $req->bindParam('topicTask', $topicTask);
+        $req->execute();
+        $_SESSION['alert']="la tache a été ajouté !" ;
+        return $_SESSION['alert'] ;
+    }  
+
+    // methode d'affichage des taches dans le tableau de bord client 
+    public static function taskClient($idCli)
+    {
+        $req=MonPdo::getInstance()->prepare("select * from task where idClient=:idCli") ;
+        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'task') ;
+        $req->execute(['idCli'=>$idCli]);
+        $lesResulats=$req->fetchAll();
+        return $lesResulats ;
     }
 
    

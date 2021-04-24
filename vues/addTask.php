@@ -22,8 +22,8 @@
        <div class="item">
          <a class="sub-btn"><i class="fas fa-tasks "></i>Projets<i class="fas fa-angle-right dropdown"></i></a>
          <div class="sub-menu">
-           <a href="index.php?uc=task&action=showTask" class="sub-item">Afficher</a>
-           <a href="#" class="sub-item">Ajouter </a>
+           <a href="index.php?uc=client&choix=showTask" class="sub-item">Afficher</a>
+           <a href="index.php?uc=client&choix=addTask" class="sub-item">Ajouter </a>
            <a href="#" class="sub-item">Modifier</a>
            <a href="#" class="sub-item">Supprimer</a>
          </div>
@@ -42,28 +42,44 @@
      </div>
    </div>
    <section class="main">
-     <h1>Bienvenu dans <br> le tableau de bord</h1>
-              <div class="text-center">
-      <?php
-
-      foreach($tasks as $task)
-        {
-         
-          echo "<div class='card text-center m-3' style='width: 15rem;'>
-              
-                                            <div class='card-body'>
-                <h5 class='card-title text-danger'>".$task->getNameTask() ."</h5>
-                <h5 class='card-title text-danger'>".$task->getTopicTask() ."</h5>
-                
-              
-                                            </div>
-          </div>" ;
-  
-    
-        }
-
-      ?>
+  <div class="dis_center">
+  <form class="bg_white"  method="POST" action="index.php?uc=client&choix=validAddTask" enctype='multipart/form-data'>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">Nom du Projet</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Projet..." name="nameTask">
     </div>
+
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Parlez-nous de votre projet</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="topicTask"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Document joint </label>
+
+      <input class="form-control" type="file" id="formFile" name="docTask">
+    </div>
+     <div class="mb-3 col-md-12">
+      <label  class="form-label">Domaine du projet</label>
+      <select id="choice" class="form-select" aria-label="Default select example" required="required"   name="nameCat">
+<!--       <option selected >Sélectionné</option> -->
+      <?php 
+      foreach($categories as $categorie)
+        {
+
+      echo "<option value='".$categorie->getIdCat() . "'>".$categorie->getNameCat() ."</option>";
+       } 
+      ?>
+
+
+    </select>
+    </div>
+    <input type="hidden" name="idClient" >
+    <div class="mb-3 col-12">
+    <button type="submit" class="btn btn-tas_color">Envoyer</button>
+  </div>
+    </div>  
+  </form>
    </section>
 
    <script type="text/javascript">

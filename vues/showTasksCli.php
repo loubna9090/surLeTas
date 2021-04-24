@@ -22,8 +22,8 @@
        <div class="item">
          <a class="sub-btn"><i class="fas fa-tasks "></i>Projets<i class="fas fa-angle-right dropdown"></i></a>
          <div class="sub-menu">
-           <a href="index.php?uc=task&action=showTask" class="sub-item">Afficher</a>
-           <a href="#" class="sub-item">Ajouter </a>
+           <a href="index.php?uc=client&choix=showTask" class="sub-item">Afficher</a>
+           <a href="index.php?uc=client&choix=addTask" class="sub-item">Ajouter </a>
            <a href="#" class="sub-item">Modifier</a>
            <a href="#" class="sub-item">Supprimer</a>
          </div>

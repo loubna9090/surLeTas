@@ -1,3 +1,4 @@
+
 <?php
 class MonPdo
 {
@@ -36,10 +37,10 @@ public static function getInstance()
 }
 
 }
-
-
-$adssmail= "loubnadamri12@gmail.com";
+ 
 /*
+$adssmail= "loubnadamri12@gmail.com";
+
    function recurpidClient($adssmail){
   	var_dump($adssmail);
         $req=MonPdo::getInstance()->prepare("select idClient from client where emailClient=:idClient");
@@ -50,15 +51,15 @@ $adssmail= "loubnadamri12@gmail.com";
     }
     recurpidClient($adssmail);
     echo "ok";*/
-$recupCli=104;
-    function TaskClient($recupCli){
-       
-        $req=MonPdo::getInstance()->prepare("select * from task where idClient=?") ;
-    $req->execute(['idClient'  =>104]);
-    echo 'ok';
-    var_dump($recupCli);
-    $lesResulats=$req->fetch();
-   var_dump($lesResulats);
-    //return $lesResulats ;
+ 
+$recupCli=103;
+        function taskClient($recupCli){   
+        $req=MonPdo::getInstance()->prepare("select * from task where idClient=:recupCli") ;
+        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'task') ;
+        $req->execute(['recupCli'=> $recupCli]); 
+        $lesResulats=$req->fetchAll();
+        var_dump($lesResulats);
+        //return $lesResulats ;
     }
+    var_dump($recupCli);
 ?>

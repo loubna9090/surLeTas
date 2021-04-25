@@ -81,16 +81,16 @@ class Task{
         $topicTask=$task->getTopicTask() ;
         $req->bindParam('topicTask', $topicTask);
         $req->execute();
-        $_SESSION['alert']="la tache a été ajouté !" ;
+        $_SESSION['alert']="la tache a été ajouté !" ;  
         return $_SESSION['alert'] ;
     }  
 
     // methode d'affichage des taches dans le tableau de bord client 
-    public static function taskClient($idCli)
+    public static function taskClient($idClient):array
     {
-        $req=MonPdo::getInstance()->prepare("select * from task where idClient=:idCli") ;
+        $req=MonPdo::getInstance()->prepare("select * from task where idClient=:idClient") ;
         $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'task') ;
-        $req->execute(['idCli'=>$idCli]);
+        $req->execute(['idClient'=>$idClient]);
         $lesResulats=$req->fetchAll();
         return $lesResulats ;
     }

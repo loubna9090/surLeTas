@@ -169,7 +169,6 @@ class Client{
         $req=MonPdo::getInstance()->prepare("select idClient from client where emailClient=:idClient");
         $req->execute(['idClient'=>$mail]);
         $leResultat=$req->fetchAll();
-        var_dump($leResultat);
         return $leResultat;
     }
 

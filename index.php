@@ -9,7 +9,8 @@ require_once "modeles/monPdo.php" ;
 require_once "modeles/Task.class.php" ;
 require_once "modeles/Client.class.php" ;
 require_once "modeles/Categorie.class.php" ;
-
+require_once "modeles/Categorie.class.php" ;
+require_once "autentification.php";
 /*var_dump($_GET["uc"]);
 var_dump($_GET["action"]);*/
 
@@ -33,8 +34,6 @@ switch($uc){
 
 	 case "client" :
 	 include ("controleurs/controleurClient.php");
-	
-	 echo "on est dans la class client";
 	 break;
 }
 

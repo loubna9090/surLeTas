@@ -1,5 +1,5 @@
 <?php
-
+require_once "autentification.php";
 if(isset($_GET["choix"])){
 $choix=$_GET["choix"] ;
 
@@ -12,13 +12,14 @@ switch($choix)
 
 // verification de connexion client
 	case "verif":
-		$_SESSION['idClient']=client::recurpidClient($_POST["emailClient"]);
 		
-		
+		// recupe id client 
+	$_SESSION['idCli']=client::recurpidClient($_POST["emailClient"]);
+	// verification connection 
     	$rep=Client::verifier($_POST["emailClient"], md5($_POST["mdpClient"])) ; 
 		if($rep==true){
 			$_SESSION["autorisation"]="OK" ;
-			$tasks=task::taskClient($_SESSION['idClient']);
+			$tasks=task::taskClient(htmlspecialchars($_SESSION['idCli']));
 		  	include("vues/dashboardClient.php") ;
 			}
 			else
@@ -31,11 +32,10 @@ switch($choix)
 		Client::deconnect() ;
 		include "vues/accueil.php" ;
 		break;
+
 // affichage des task dans le tableau de bord client
 	case "showTask":
-	$id=client::recurpidClient($_POST["emailClient"]);
-        $_SESSION['idClient']=$id;
-        $tasks=task::taskClient($id);
+        $tasks=task::taskClient(htmlspecialchars($_SESSION['idCli']));
         include ("vues/dashboardClient.php") ;
         break;
 

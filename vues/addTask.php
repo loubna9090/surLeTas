@@ -1,3 +1,6 @@
+<?php
+if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
  <head>
@@ -105,4 +108,4 @@
 
  </body>
 </html>
-      
+<?php } ?>

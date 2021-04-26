@@ -12,14 +12,13 @@ switch($choix)
 
 // verification de connexion client
 	case "verif":
-		
 		// recupe id client 
-	$_SESSION['idCli']=client::recurpidClient($_POST["emailClient"]);
+	$_SESSION['client']=client::recurpidClient($_POST["emailClient"]);
 	// verification connection 
     	$rep=Client::verifier($_POST["emailClient"], md5($_POST["mdpClient"])) ; 
 		if($rep==true){
 			$_SESSION["autorisation"]="OK" ;
-			$tasks=task::taskClient(htmlspecialchars($_SESSION['idCli']));
+			$tasks=task::taskClient($_SESSION['client']);
 		  	include("vues/dashboardClient.php") ;
 			}
 			else
@@ -35,7 +34,7 @@ switch($choix)
 
 // affichage des task dans le tableau de bord client
 	case "showTask":
-        $tasks=task::taskClient(htmlspecialchars($_SESSION['idCli']));
+        $tasks=task::taskClient($_SESSION['client']);
         include ("vues/dashboardClient.php") ;
         break;
 

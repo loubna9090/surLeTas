@@ -73,7 +73,7 @@ class Task{
     // methode d'insertion des tache dans la compte client 
     public static function taskDbor (task $task)
     {
-        $req=MonPdo::getInstance()->prepare("insert into task ( docTask, nameTask, topicTask, idCat, idClient, dateTask) values(:docTask, :nameTask, :topicTask,'" .  $_POST["nameCat"]. "','".$_SESSION['idClient']."', NOW())") ;
+        $req=MonPdo::getInstance()->prepare("insert into task ( docTask, nameTask, topicTask, idCat, idClient, dateTask) values(:docTask, :nameTask, :topicTask,'" .  $_POST["nameCat"]. "','".$_SESSION['client']."', NOW())") ;
         $docTask=$task->getDocTask() ;
         $req->bindParam('docTask', $docTask);
         $nameTask=$task->getNameTask() ;
@@ -86,7 +86,7 @@ class Task{
     }  
 
     // methode d'affichage des taches dans le tableau de bord client 
-    public static function taskClient($idClient):array
+    public static function taskClient($idClient)
     {
         $req=MonPdo::getInstance()->prepare("select * from task where idClient=:idClient") ;
         $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'task') ;

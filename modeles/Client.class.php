@@ -168,7 +168,8 @@ class Client{
     public static function recurpidClient($mail){
         $req=MonPdo::getInstance()->prepare("select idClient from client where emailClient=:idClient");
         $req->execute(['idClient'=>$mail]);
-        $leResultat=$req->fetchAll();
+        $leResultat=$req->fetchAll();     
+        $leResultat=(int)$leResultat[0][0];
         return $leResultat;
     }
 

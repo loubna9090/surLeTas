@@ -69,9 +69,8 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
   <tbody>
                     <?php 
 
-if (is_array($tasks))
-{
-      foreach((array)$tasks as $task)
+
+      foreach($tasks as $task)
         {
          
 /*         var_dump($task);*/
@@ -87,9 +86,7 @@ if (is_array($tasks))
     " ;
   
     }
-        }else{
-          echo "erreur";
-        }
+        
         ?>
   </tbody>
 </table>

@@ -45,23 +45,15 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
        <div class="item"><a href="#"><i class="fas fa-cog"></i>Paramétre</a></div>
      </div>
    </div>
-   <section> 
-<div class="container">
-  <h1 class="title1 dis_center my-5">Bienvenu dans le tableau de bord  </h1> 
-</div>
+   <section>
+    <div class="container">
+     <h1 class="title1 dis_center my-5">Modifier les Projets &nbsp; <i class="tas_color fas fa-edit"></i></h1> </div>
    </section>
    <section class="main">
     <div class="container">
-<div class="bg_white">     
- <div class="row">
- <div class="col-md-12 ">
-<h2 class="title2 mb-5">Liste des projets </h2>
-      
-    </div>
-</div>
-
 <div class="row">
  <div class="col-md-12">
+  <h4 class="tas_color"> liste des projets</h4>
     <table class="table">
   <thead>
     <tr>
@@ -70,6 +62,7 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
       <th scope="col">Description </th>
       <th scope="col">Date</th>
       <th scope="col">Status</th>
+      <th scope="col">Modifier</th>
     </tr>
   </thead>
   <tbody>
@@ -84,30 +77,13 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
     <tr>
       <th scope='row'>".$task->getIdTask() ."</th>
       <td>".$task->getNameTask() ."</td>
-      <td><button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target= '#exampleModal'>
-  <i class='fas fa-eye'></i>
-</button> </td>
+      <td>".$task->getTopicTask() ."</td>
       <td>".$task->getDateTask() ."</td>
       <td>".$task->getStatusTask() ."<i class='fas fa-circle color-att'></i></td>
+     <td><a id='mywish' href='index.php?uc=client&choix=editTask&idTask=".$task->getIdTask() ."' class='btn btn-success'><i class='fas fa-edit'></i></a></td> 
+      
 
-    </tr>";
-echo "
-<div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-  <div class='modal-dialog'>
-    <div class='modal-content'>
-      <div class='modal-header'>
-        <h5 class='modal-title' id='exampleModalLabel'>".$task->getNameTask() ."</h5>
-        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-      </div>
-      <div class='modal-body'>
-       ".$task->getTopicTask() ."
-      </div>
-      <div class='modal-footer'>
-        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+    </tr>
     " ;
   
     }
@@ -115,10 +91,6 @@ echo "
         ?>
   </tbody>
 </table>
-
-
-
-</div>
 </div>
 </div>
 </div>

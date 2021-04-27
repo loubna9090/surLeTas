@@ -173,5 +173,14 @@ class Client{
         return $leResultat;
     }
 
+    // affich info client
+    public static function infoClient($idClient){
+        $req=MonPdo::getInstance()->prepare("select * from client where idClient=:idClient");
+        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'client') ;
+        $req->bindParam('idClient', $idClient);
+        $leResultat=$req->fetchAll();     
+        return $leResultat;
+    }
+
 
 }

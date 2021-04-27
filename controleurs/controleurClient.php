@@ -1,5 +1,4 @@
 <?php
-require_once "autentification.php";
 if(isset($_GET["choix"])){
 $choix=$_GET["choix"] ;
 
@@ -12,12 +11,13 @@ switch($choix)
 
 // verification de connexion client
 	case "verif":
-		// recupe id client 
+	// recupe id client 
 	$_SESSION['client']=client::recurpidClient($_POST["emailClient"]);
 	// verification connection 
     	$rep=Client::verifier($_POST["emailClient"], md5($_POST["mdpClient"])) ; 
 		if($rep==true){
 			$_SESSION["autorisation"]="OK" ;
+			client::infoClient($_SESSION['client']);
 			$tasks=task::taskClient($_SESSION['client']);
 		  	include("vues/dashboardClient.php") ;
 			}
@@ -31,11 +31,17 @@ switch($choix)
 		Client::deconnect() ;
 		include "vues/accueil.php" ;
 		break;
+	// affichage des task dans le tableau de bord client
+	case "bienvenu":
+		client::infoClient($_SESSION['client']);
+        $tasks=task::taskClient($_SESSION['client']);
+        include ("vues/dashboardClient.php") ;
+        break;
 
 // affichage des task dans le tableau de bord client
 	case "showTask":
         $tasks=task::taskClient($_SESSION['client']);
-        include ("vues/dashboardClient.php") ;
+        include ("vues/showTask.php") ;
         break;
 
 // page ajouter les tasks appartir du tableau de bord client
@@ -43,6 +49,7 @@ switch($choix)
 		$categories=categorie::insertCat();
 		include "vues/addTask.php" ;
 		break;
+
 // ajouter les tasks appartir du tableau de bord client
 	case "validAddTask":
 		$task= new task() ;
@@ -54,7 +61,58 @@ switch($choix)
         $client=new client();
         $client->getIdClient($_SESSION['idClient']);
         task::taskDbor($task);
-        include ("vues/addTask.php");
+        $tasks=task::taskClient($_SESSION['client']);
+        include ("vues/showTask.php");
 		break;
+
+// afficher les task a modifer 
+		case 'listEditTask':
+		$tasks=task::taskClient($_SESSION['client']);
+        include ("vues/listEditTask.php") ;
+        break;
+
+//  modifier les tasks appartir du tableau de bord client
+	case 'editTask':
+		$categories=categorie::insertCat();
+		$task=task::searshTask($_GET["idTask"]) ;
+		include "vues/editTask.php" ;
+		break;
+
+// valider les modification sur la task 
+	case "validEditTask":
+		$task= new task() ;
+		$task->setIdTask($_POST["idTask"]) ;
+        $task->setNameTask($_POST["nameTask"]) ;
+        $task->setTopicTask($_POST["topicTask"]) ;
+        $task->setDocTask(basename($_FILES["docTask"]["name"])) ; 
+        $categorie=new categorie();
+        $categorie->setNameCat($_POST["nameCat"]) ;
+        task::editing($task);
+        echo "le projet a été modifier";
+        $tasks=task::taskClient($_SESSION['client']);
+        include ("vues/listEditTask.php");
+		break;
+
+// afficher les task a supprimer 
+		case 'listDeleteTask':
+		$tasks=task::taskClient($_SESSION['client']);
+        include ("vues/listDeleteTask.php") ;
+        break;
+
+//  supprimer les tasks appartir du tableau de bord client
+	case 'deleteTask':
+		$task=task::searshTask($_GET["idTask"]) ;
+		task::delete($task);
+		echo "le projet a été supprimer";
+        $tasks=task::taskClient($_SESSION['client']);
+		include "vues/listDeleteTask.php" ;
+		break;
+
+// modification profil client
+		case'editProfilClient':
+		client::infoClient($_SESSION['client']);
+		include "vues/editProfilClient.php" ;
+		break;
+
 }
 }

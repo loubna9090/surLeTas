@@ -21,14 +21,14 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
        <i class="fas fa-times"></i>
      </div>
      <div class="menu">
-       <div class="item active"><a href="dashboardClient.php"><i class="fas fa-desktop"></i>Tableau de bord </a></div>
+       <div class="item active"><a href="index.php?uc=client&choix=bienvenu"><i class="fas fa-desktop"></i>Tableau de bord </a></div>
        <div class="item">
          <a class="sub-btn"><i class="fas fa-tasks "></i>Projets<i class="fas fa-angle-right dropdown"></i></a>
          <div class="sub-menu">
            <a href="index.php?uc=client&choix=showTask" class="sub-item">Afficher</a>
            <a href="index.php?uc=client&choix=addTask" class="sub-item">Ajouter </a>
-           <a href="#" class="sub-item">Modifier</a>
-           <a href="#" class="sub-item">Supprimer</a>
+           <a href="index.php?uc=client&choix=listEditTask"class="sub-item">Modifier</a>
+           <a href="index.php?uc=client&choix=listDeleteTask" class="sub-item">Supprimer</a>
          </div>
        </div>
        <div class="item">
@@ -39,7 +39,7 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
          </div>
        </div>
 
-       <div class="item"><a href="#"><i class="fas fa-user"></i>Profil</a></div>
+       <div class="item"><a href="index.php?uc=client&choix=editProfilClient"><i class="fas fa-user"></i>Profil</a></div>
        
        <div class="item"><a href="#"><i class="fas fa-cog"></i>Paramétre</a></div>
      </div>

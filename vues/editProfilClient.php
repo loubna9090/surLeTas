@@ -1,4 +1,4 @@
-
+ 
 <?php
 if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
   ?>
@@ -45,84 +45,62 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
        <div class="item"><a href="#"><i class="fas fa-cog"></i>Paramétre</a></div>
      </div>
    </div>
-   <section> 
-<div class="container">
-  <h1 class="title1 dis_center my-5">Bienvenu dans le tableau de bord  </h1> 
-</div>
-   </section>
    <section class="main">
-    <div class="container">
-<div class="bg_white">     
- <div class="row">
- <div class="col-md-12 ">
-<h2 class="title2 mb-5">Liste des projets </h2>
-      
-    </div>
-</div>
+<div class="container">
+<div class="row center mt-5">
+<div class="col">
+    <form class="bg_white"  method="POST" action="index.php?uc=client&choix=validProfil" enctype="multipart/form-data">
+    <div class="mb-3">
 
-<div class="row">
- <div class="col-md-12">
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Titre </th>
-      <th scope="col">Description </th>
-      <th scope="col">Date</th>
-      <th scope="col">Status</th>
-    </tr>
-  </thead>
-  <tbody>
-                    <?php 
+ <!-- fomr client -->
+ <div class="mb-3 col-md-12">
+    <label for="inputEmail4" class="form-label">Email</label>
+    <input type="email" class="form-control" required="required" id="inputEmail4" name="emailClient" value="<?php echo $client->getEmailClient() ?>">
+  </div>
+  <div class="mb-3 col-md-12">
+    <label for="inputPassword4" class="form-label">Mot de passe</label>
+    <input type="password" class="form-control" required="required" id="inputPassword4" name="mdpClient" value="<?php echo $client->getMdpClient() ?>">
+  </div>
+        <div class="mb-3 row">
+  <div class="col-md-6">
+    <label for="" class="form-label">Nom</label>
+    <input type="text" class="form-control" required="required" id="lastName" name="lastNameClient" value="<?php echo $client->getLastNameClient() ?>">
+  </div>
 
-
-      foreach($tasks as $task)
-        {
-         
-/*         var_dump($task);*/
-          echo "
-    <tr>
-      <th scope='row'>".$task->getIdTask() ."</th>
-      <td>".$task->getNameTask() ."</td>
-      <td><button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target= '#exampleModal'>
-  <i class='fas fa-eye'></i>
-</button> </td>
-      <td>".$task->getDateTask() ."</td>
-      <td>".$task->getStatusTask() ."<i class='fas fa-circle color-att'></i></td>
-
-    </tr>";
-echo "
-<div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-  <div class='modal-dialog'>
-    <div class='modal-content'>
-      <div class='modal-header'>
-        <h5 class='modal-title' id='exampleModalLabel'>".$task->getNameTask() ."</h5>
-        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-      </div>
-      <div class='modal-body'>
-       ".$task->getTopicTask() ."
-      </div>
-      <div class='modal-footer'>
-        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
-      </div>
-    </div>
+  <div class="mb-3 col-md-6">
+    <label for="" class="form-label">Prénom</label>
+    <input type="text" class="form-control" required="required" id="firstName" name="firstNameClient" value="<?php echo $client->getLastNameClient() ?>">
+  </div>
+              <div class="mb-3 col-md-6">
+    <label for="" class="form-label">Téléphone</label>
+    <input type="tel" class="form-control" required="required" id="phone"   name="phoneClient" value="<?php echo $client->getPhoneClient() ?>">
   </div>
 </div>
-    " ;
-  
-    }
-        
-        ?>
-  </tbody>
-</table>
+  <div class="mb-3  col-12">
+    <label for="inputAddress" class="form-label">Adresse</label>
+    <input type="text" class="form-control" required="required" id="inputAddress"  name="adressClient" value="<?php echo $client->getAdressClient() ?>">
+  </div>
+  <div class="mb-3 row">
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Pays</label>
+    <input type="text" class="form-control" required="required" id="inputCounrty" name="countryClient" value="<?php echo $client->getCountryClientClient() ?>">
+  </div>
 
+  <div class="mb-3 col-md-6">
+    <label for="inputZip" class="form-label">Ville</label>
+    <input type="text" class="form-control" required="required" id="inputCity" name="cityClient" value="<?php echo $client->getCityClientClient() ?>">
+  </div>
+</div>
+<div class="mb-3 col-12">
+    <button type="submit" class="btn btn-tas_color">Enregistrer les modifications</button>
+  </div>
+    </div>  
+  </form>
 
-
 </div>
 </div>
 </div>
-</div>
-   </section>
+ </section>
 
    <script type="text/javascript">
    $(document).ready(function(){

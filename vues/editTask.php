@@ -45,86 +45,51 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
        <div class="item"><a href="#"><i class="fas fa-cog"></i>Paramétre</a></div>
      </div>
    </div>
-   <section> 
-<div class="container">
-  <h1 class="title1 dis_center my-5">Bienvenu dans le tableau de bord  </h1> 
-</div>
-   </section>
    <section class="main">
-    <div class="container">
-<div class="bg_white">     
- <div class="row">
- <div class="col-md-12 ">
-<h2 class="title2 mb-5">Liste des projets </h2>
-      
+<div class="container">
+<div class="row center mt-5">
+<div class="col">
+	  <form class="bg_white"  method="POST" action="index.php?uc=client&choix=validEditTask" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">Nom du Projet</label>
+   <input type="text" class="form-control" id="formGroupExampleInput"  name="nameTask" value="<?php echo $task->getNameTask() ?>">
     </div>
-</div>
 
-<div class="row">
- <div class="col-md-12">
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Titre </th>
-      <th scope="col">Description </th>
-      <th scope="col">Date</th>
-      <th scope="col">Status</th>
-    </tr>
-  </thead>
-  <tbody>
-                    <?php 
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Parlez-nous de votre projet</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="topicTask"  value="<?php echo $task->getTopicTask() ?>"></textarea>
+    </div>
 
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Document joint </label>
 
-      foreach($tasks as $task)
+      <input class="form-control" type="file" id="formFile" name="docTask"  value="<?php echo $task->getDocTask() ?>">
+    </div>
+     <div class="mb-3 col-md-12">
+      <label  class="form-label">Domaine du projet</label>
+      <select id="choice" class="form-select" aria-label="Default select example" required="required"   name="nameCat" >
+       
+      <?php 
+      foreach($categories as $categorie)
         {
-         
-/*         var_dump($task);*/
-          echo "
-    <tr>
-      <th scope='row'>".$task->getIdTask() ."</th>
-      <td>".$task->getNameTask() ."</td>
-      <td><button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target= '#exampleModal'>
-  <i class='fas fa-eye'></i>
-</button> </td>
-      <td>".$task->getDateTask() ."</td>
-      <td>".$task->getStatusTask() ."<i class='fas fa-circle color-att'></i></td>
 
-    </tr>";
-echo "
-<div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-  <div class='modal-dialog'>
-    <div class='modal-content'>
-      <div class='modal-header'>
-        <h5 class='modal-title' id='exampleModalLabel'>".$task->getNameTask() ."</h5>
-        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-      </div>
-      <div class='modal-body'>
-       ".$task->getTopicTask() ."
-      </div>
-      <div class='modal-footer'>
-        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
-      </div>
+      echo "<option selected value='".$categorie->getIdCat() . "'>".$categorie->getNameCat() ."</option>";
+       } 
+      ?>
+    </select>
     </div>
+   <input type="hidden" name="idTask" value="<?= $task->getIdTask() ?>">
+    <div class="mb-3 col-12">
+    <button type="submit" class="btn btn-tas_color">Enregistrer les modifications</button>
   </div>
-</div>
-    " ;
-  
-    }
-        
-        ?>
-  </tbody>
-</table>
-
-
+    </div>  
+  </form>
 
 </div>
 </div>
 </div>
-</div>
-   </section>
-
-   <script type="text/javascript">
+ </section>
+ <script type="text/javascript">
    $(document).ready(function(){
      //jquery for toggle sub menus
      $('.sub-btn').click(function(){
@@ -147,6 +112,4 @@ echo "
 
  </body>
 </html>
-      <?php
-}
-  ?>
+<?php } ?>

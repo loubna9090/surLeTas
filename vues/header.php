@@ -1,7 +1,4 @@
-<?php 
-require_once "autentification.php";
-init();
- ?>
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -29,12 +26,7 @@ init();
         <a class="nav-link tas_color" href="#">Blog</a>
       </div>
       <div class="nav-btn">
-        <?php 
-if (!isConnect()):
- ?>
-<?php else:?>
         <button class="btn btn-outline-tas_color" type="submit"><a href="index.php?uc=client&choix=deconnexion">Déconncter</a></button>
- <?php endif;?>
  <button class="btn btn-outline-tas_color" type="submit"><a href="index.php?uc=client&choix=formConnect">Se connecter</a></button>
         <button class="btn btn-tas_color" type="submit" ><a href="index.php?uc=task&action=posTask">Publier un projet</a></button></div>
     </div>

@@ -31,6 +31,9 @@ class Task{
     }
 
 // les setters
+    function setIdTask($idTask) {
+        $this->idTask=$idTask;
+    }
     function setDateTask($dateTask) {
         $this->dateTask=$dateTask;
     }
@@ -66,8 +69,8 @@ class Task{
         $topicTask=$task->getTopicTask() ;
         $req->bindParam('topicTask', $topicTask);
         $req->execute();
-        $_SESSION['alert']="la tache a été ajouté !" ;
-        return $_SESSION['alert'] ;
+        $_SESSION['ajoute']="la tache a été ajouté !" ;
+        return $_SESSION['ajoute'] ;
     }  
 
     // methode d'insertion des tache dans la compte client 
@@ -81,8 +84,8 @@ class Task{
         $topicTask=$task->getTopicTask() ;
         $req->bindParam('topicTask', $topicTask);
         $req->execute();
-        $_SESSION['alert']="la tache a été ajouté !" ;  
-        return $_SESSION['alert'] ;
+        $_SESSION['ajout']="la tache a été ajouté !" ;  
+        return $_SESSION['ajout'] ;
     }  
 
     // methode d'affichage des taches dans le tableau de bord client 
@@ -94,6 +97,45 @@ class Task{
         $lesResulats=$req->fetchAll();
         return $lesResulats ;
     }
+
+    //
+     public static function searshTask($idTask)
+    {
+    $req=MonPdo::getInstance()->prepare("select * from task where idTask=:idTask") ;
+    $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'task') ;
+    $req->execute(array(':idTask'=>$idTask));
+    $leResultat=$req->fetch();
+    return $leResultat ;
+
+    }
+
+    // modifer les tasks dans le tableau de bord client
+    public static function editing(task $task)
+    {  
+        $req=MonPdo::getInstance()->prepare("update task set docTask=:docTask, nameTask=:nameTask, topicTask=:topicTask, idCat='".$_POST["nameCat"]."' where idTask=:idTask") ;
+        $idTask=$task->getIdTask() ;
+        $req->bindParam('idTask',$idTask) ;
+        $docTask=$task->getDocTask() ;
+        $req->bindParam('docTask', $docTask);
+        $nameTask=$task->getNameTask() ;
+        $req->bindParam('nameTask', $nameTask);
+        $topicTask=$task->getTopicTask() ;
+        $req->bindParam('topicTask', $topicTask);
+        $nb=$req->execute();
+        return $nb ;
+    }
+
+    // supprimer les task depuis le tableau de bord du client 
+    public static function delete(task $task)
+    {
+        $req=MonPdo::getInstance()->prepare("delete from task where idTask=:idTask") ;
+        $idTask=$task->getIdTask() ;
+        $req->bindParam('idTask',$idTask) ;
+        $nb=$req->execute();
+        return $nb ;
+    }
+ 
+
 
    
 }

@@ -10,7 +10,6 @@ require_once "modeles/Task.class.php" ;
 require_once "modeles/Client.class.php" ;
 require_once "modeles/Categorie.class.php" ;
 require_once "modeles/Categorie.class.php" ;
-require_once "autentification.php";
 /*var_dump($_GET["uc"]);
 var_dump($_GET["action"]);*/
 

@@ -1,13 +1,12 @@
 <?php
 session_start() ;
-include("vues/header.php");
 require_once "modeles/monPdo.php" ;
 require_once "modeles/Task.class.php" ;
 require_once "modeles/Client.class.php" ;
 require_once "modeles/Categorie.class.php" ;
-
-var_dump($_GET["uc"]);
-var_dump($_GET["action"]);
+require_once "modeles/Categorie.class.php" ;
+/*var_dump($_GET["uc"]);
+var_dump($_GET["action"]);*/
 
 if(empty($_GET["uc"])){
     $uc="accueil" ;
@@ -21,11 +20,15 @@ switch($uc){
         break ;
              
  case "task":
-     var_dump($_POST);
+/*     var_dump($_POST);*/
      include("controleurs/controleurTask.php") ;
      
 /*     var_dump($task);*/
 	break ;
+
+	 case "client" :
+	 include ("controleurs/controleurClient.php");
+	 break;
 }
 
 include("vues/footer.php");

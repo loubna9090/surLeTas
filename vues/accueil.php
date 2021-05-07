@@ -1,10 +1,11 @@
+<?php   include("vues/header.php"); ?>
 <section id="slider"><!-- slider  -->
   <div class="container-fluid">
     <div class="row bg-black  block_slide">
       <div class="col-lg-6">
         <div class="title"> 
-          <h1 class="txt-white"> Looking for technology & programming services</h1>
-          <h2 class="txt-white my-3"> Achieve your next job quickly with us</h2>
+          <h1 class="txt-white">À la recherche des services de technologie et de programmation</h1>
+          <h2 class="txt-white my-3">Accomplissez votre projets rapidement avec nous</h2>
           <button class="btn btn-tas_color my-5  "><a href="index.php?uc=task&action=posTask">Publier un projet</a></button>
         </div>
         
@@ -19,7 +20,7 @@
 <section id="need"> <!-- need -->
   <div class="container">
     <div class="row">
-      <div class="col py-5"> <h3 class="tas_color"> Besoin de réaliser des tâches </h3> </div>
+      <div class="col pb-5"> <h3 class="tas_color"> Besoin de réaliser des tâches </h3> </div>
     </div>
     <div class="row ">
       <div class="col-md-4 px-5">
@@ -64,7 +65,7 @@
      <h3 class="tas_color py-3"> On vous conseil & accompagne vers le succès </h3> 
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.<br>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.  lacus vel facilisis.</p>
-    <button class="btn btn-tas_color my-5  "> Publier un projet</button>
+    <button class="btn btn-tas_color my-5  "><a href="index.php?uc=task&action=posTask"> Publier un projet</a></button>
       </div>
   </div>
 </div>

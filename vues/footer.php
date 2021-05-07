@@ -24,8 +24,8 @@
  
       <div class="col">
       <h5 class="tas_color">Address:</h5>
-      <p>Upper West Side (UWS), Manhattan
-      <br/>New York,  New York City</p>
+      <p>11, avenue du Colonel Fabien
+      <br/>93200 Saint-Denis FRANCE</p>
       </div>
 
 
@@ -33,7 +33,7 @@
 
    </div>
 
-       <div><p>Copyright ©2021 All Rights Reserved equipe: <span class="tas_color">Sur le Tas</span> </p></div> 
+       <div><p>Copyright ©2021 Tous droits réservés  <span class="tas_color">Sur le Tas</span> </p></div> 
     </footer>
 
 

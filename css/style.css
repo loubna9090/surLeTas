@@ -8,6 +8,10 @@ a:hover, a:visited, a:link, a:active
 {
     text-decoration: none;
 }
+.color_red{
+    color: red;
+}
+
 .tas_color{
 	color: #1fd81f !important;
 }
@@ -18,10 +22,28 @@ a:hover, a:visited, a:link, a:active
     color: #1fd81f;
     border-color: #1fd81f;
 }
+.btn-outline-tasc a{
+    color: #1fd81f;
+    padding: 6px 15px;
+    border-radius: 5px;
+    border: 3px solid #1fd81f;
+}
+.btn-tas_color_m{
+    background-color: #1fd81f;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.btn-tas_color_m a {
+    color: white !important;
+    font-weight: 500;
+}
+
 .btn-tas_color{
 	background-color: #1fd81f;
 	color: white;
 	font-weight: bold;
+    font-size: 1.3rem;
 }
 .btn-tas_color a {
     color: white !important;
@@ -31,8 +53,13 @@ a:hover, a:visited, a:link, a:active
     color: black !important;
     font-weight: 500;
 }
-.bg-black{
-	background-color: black;
+.bg-black-menu {
+    background-color: black;
+    width: 100%;
+    border-bottom: 1px solid #1fd81f96;
+}
+.bg-black {
+    background-color: black;
 }
 .txt-white{
 	color: white;
@@ -54,9 +81,12 @@ a:hover, a:visited, a:link, a:active
 .nav-btn .btn-outline-tas_color {
     margin: 0 15px;
 }
-header{
-    border-bottom: 1px solid #1b741b;
+.nav-btn .btn-outline-tas_color a{
+    color: #1fd81f;
 }
+/*header{
+    border-bottom: 1px solid #1b741b;
+}*/
 .navbar-collapse {
     flex-basis: 100%;
     flex-grow: 0;
@@ -70,11 +100,11 @@ header{
 	margin: 15% 5%;
 }
 #slider h1.txt-white {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     font-weight: bold;
 }
 #slider h2.txt-white {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 100;
 }
 #slider h2.tas_color {
@@ -84,7 +114,7 @@ header{
 #slider .btn-tas_color {
     background-color: #1fd81f;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 500;
 }
 /*----------------------------------section need*/
@@ -161,4 +191,18 @@ footer li{
     border-radius: 1%;
     -o-box-shadow: 0px 0px 10px 2px #cfcfcf;
     box-shadow: 0px 0px 10px 2px #17ce1a94;
+}
+.row_center{
+    justify-content: space-around;
+    flex-direction: row;
+}
+.text-left{
+    float: left;
+}
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #1fd81f;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #1fd81f33;
 }

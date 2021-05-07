@@ -1,9 +1,10 @@
+
 <?php
 class MonPdo
 {
 
 private static $serveur='mysql:host=localhost';
-private static $bdd='dbname=surletas_v2'; 
+private static $bdd='dbname=surletas'; 
 private static $user='root' ; 
 private static $mdp='' ;
 private static $monPdo;
@@ -36,4 +37,29 @@ public static function getInstance()
 }
 
 }
+ 
+/*
+$adssmail= "loubnadamri12@gmail.com";
+
+   function recurpidClient($adssmail){
+  	var_dump($adssmail);
+        $req=MonPdo::getInstance()->prepare("select idClient from client where emailClient=:idClient");
+        $req->execute(['idClient'=>$adssmail]);
+        $leResultat=$req->fetchAll();
+        var_dump($leResultat);
+        return $leResultat;
+    }
+    recurpidClient($adssmail);
+    echo "ok";*/
+ 
+$recupCli=103;
+        function taskClient($recupCli){   
+        $req=MonPdo::getInstance()->prepare("select * from task where idClient=:recupCli") ;
+        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'task') ;
+        $req->execute(['recupCli'=> $recupCli]); 
+        $lesResulats=$req->fetchAll();
+        var_dump($lesResulats);
+        //return $lesResulats ;
+    }
+    var_dump($recupCli);
 ?>

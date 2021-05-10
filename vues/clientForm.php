@@ -2,7 +2,7 @@
 <section id="slider"><!-- slider  -->
   <div class="container-fluid">
     <div class="row bg-black  block_slide">
-      <div class="col-lg-12 w-50">
+      <div class="col-lg-12 w-100">
         <div class="title"> 
 
           <h1 class="txt-white"> Veuillez entrer vos identifiants de connexion   <i class=" tas_color fas fa-id-card-alt"></i> </h1>
@@ -24,7 +24,7 @@
     </div>
   <div class="form-group mt-3">
     <label>Mot de passe</label>
-    <input type="password" class="form-control" name="mdpClient" placeholder="votre mot de passe ?">
+    <input type="password" class="form-control" name="mdpClient" placeholder="votre mot de passe">
   </div>
  <div class="g-recaptcha" data-sitekey="6LcxndoUAAAAAJOvuE1ippjECty28WQAG54owwGk"></div>
   <input type="submit" class="btn btn-tas_color mt-3" value="Connexion">

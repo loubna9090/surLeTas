@@ -2,7 +2,7 @@
 <section id="slider"><!-- slider  -->
   <div class="container-fluid">
     <div class="row bg-black  block_slide">
-      <div class="col-lg-12 w-50">
+      <div class="col-lg-12 w-100">
         <div class="title"> 
 
           <h1 class="txt-white">OOps! La connexion a échoué  <i class="fas fa-times-circle tas_color"></i></h1>

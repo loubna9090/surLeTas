@@ -5,12 +5,14 @@ require_once "modeles/Task.class.php" ;
 require_once "modeles/Client.class.php" ;
 require_once "modeles/Categorie.class.php" ;
 require_once "modeles/Categorie.class.php" ;
-/*var_dump($_GET["uc"]);
-var_dump($_GET["action"]);*/
 
-if(empty($_GET["uc"])){
+
+if(empty($_GET["uc"]))
+{
     $uc="accueil" ;
-} else {
+
+} 
+else {
 $uc=$_GET["uc"] ;    
 }
 
@@ -19,16 +21,13 @@ switch($uc){
         include("vues/accueil.php");
         break ;
              
- case "task":
-/*     var_dump($_POST);*/
+ 	case "task":
      include("controleurs/controleurTask.php") ;
-     
-/*     var_dump($task);*/
 	break ;
 
-	 case "client" :
+	case "client" :
 	 include ("controleurs/controleurClient.php");
-	 break;
+	break;
 }
 
 include("vues/footer.php");

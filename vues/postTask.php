@@ -2,7 +2,7 @@
 <section id="slider"><!-- slider  -->
   <div class="container-fluid">
     <div class="row bg-black  block_slide">
-      <div class="col-lg-6 w-50">
+      <div class="col-lg-6 w-100">
         <div class="title"> 
 
           <h1 class="txt-white"> Exprimer votre besoin <i class="fas fa-pen-alt tas_color"></i></h1>

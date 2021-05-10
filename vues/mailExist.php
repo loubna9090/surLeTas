@@ -2,7 +2,7 @@
 <section id="slider"><!-- slider  -->
   <div class="container-fluid">
     <div class="row bg-black  block_slide">
-      <div class="col-lg-12 w-50">
+      <div class="col-lg-12 w-100">
         <div class="title"> 
 
           <h1 class="txt-white"> Votre projet a été envoyer avec succée <i class=" tas_color fas fa-clipboard-check"></i> </h1>

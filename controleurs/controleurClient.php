@@ -88,7 +88,6 @@ switch($choix)
         $categorie=new categorie();
         $categorie->setNameCat($_POST["nameCat"]) ;
         task::editing($task);
-        echo "le projet a été modifier";
         $tasks=task::taskClient($_SESSION['client']);
         include ("vues/listEditTask.php");
 		break;
@@ -103,7 +102,6 @@ switch($choix)
 	case 'deleteTask':
 		$task=task::searshTask($_GET["idTask"]) ;
 		task::delete($task);
-		echo "le projet a été supprimer";
         $tasks=task::taskClient($_SESSION['client']);
 		include "vues/listDeleteTask.php" ;
 		break;

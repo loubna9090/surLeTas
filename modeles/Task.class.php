@@ -76,10 +76,10 @@ class Task{
         return $_SESSION['ajoute'] ;
     }  
 
-    // methode d'insertion des tache dans la compte client 
+    // methode d'insertion des taches dans la compte client 
     public static function taskDbor (task $task)
     {
-        $req=MonPdo::getInstance()->prepare("insert into task ( docTask, nameTask, topicTask, idCat, idClient, dateTask) values(:docTask, :nameTask, :topicTask,'" .  $_POST["nameCat"]. "','".$_SESSION['client']."', NOW())") ;
+        $req=MonPdo::getInstance()->prepare("insert into task ( docTask, nameTask, topicTask, idCat, idClient, dateTask) values(:docTask, :nameTask, :topicTask,'" .$_POST["nameCat"]. "','".$_SESSION['client']."', NOW())");
         $docTask=$task->getDocTask() ;
         $req->bindParam('docTask', $docTask);
         $nameTask=$task->getNameTask() ;
@@ -101,7 +101,7 @@ class Task{
         return $lesResulats ;
     }
 
-    //
+    //affichage des taches qui ont le même idClient
      public static function searshTask($idTask)
     {
     $req=MonPdo::getInstance()->prepare("select * from task where idTask=:idTask") ;

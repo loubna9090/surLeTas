@@ -104,7 +104,7 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
 </button> </td>
       <td>".$task->getDateTask() ."</td>
       <td>".$task->getStatusTask() ." &nbsp;<i class='fas fa-circle color-att'></i></td>
-      <td><a id='mywish' href='index.php?uc=client&choix=deleteTask&idTask=".$task->getIdTask() ."' class=' btn btn-danger'><i class='fas center  fa-trash-alt'></i></a></td>
+      <td><a id='mywish' href='index.php?uc=client&choix=deleteTask&idTask=".$task->getIdTask() ."' class=' btn btn-danger' onClick='confirmation();' ><i class='fas center  fa-trash-alt'></i></a></td>
     </tr>";
 echo "
 <div class='modal fade' id='exampleModal".$task->getIdTask() ."' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
@@ -118,7 +118,7 @@ echo "
        ".$task->getTopicTask() ."
       </div>
       <div class='modal-footer'>
-        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Fermer</button>
       </div>
     </div>
   </div>
@@ -141,26 +141,7 @@ echo "
    </section>
   
 
-   <script type="text/javascript">
-   $(document).ready(function(){
-     //jquery for toggle sub menus
-     $('.sub-btn').click(function(){
-       $(this).next('.sub-menu').slideToggle();
-       $(this).find('.dropdown').toggleClass('rotate');
-     });
-
-     //jquery for expand and collapse the sidebar
-     $('.menu-btn').click(function(){
-       $('.side-bar').addClass('active');
-       $('.menu-btn').css("visibility", "hidden");
-     });
-
-     $('.close-btn').click(function(){
-       $('.side-bar').removeClass('active');
-       $('.menu-btn').css("visibility", "visible");
-     });
-   });
-   </script>
+   <script type="text/javascript" src="js/script.js"></script>
 
  </body>
 </html>

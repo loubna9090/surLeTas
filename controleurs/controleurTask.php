@@ -34,6 +34,7 @@ switch($action)
         $task->setDocTask(basename($_FILES["docTask"]["name"])) ; 
         $categorie=new categorie();
         $categorie->setNameCat($_POST["nameCat"]) ;
+        
         $rep=Client::exist($_POST["emailClient"]) ; 
         if($rep==false){
             client::insertClient($client);

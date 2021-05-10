@@ -72,6 +72,9 @@ color:#dc3545;
  background: #1fd81f;
  transition: 0.3s ease;
 }
+.side-bar .menu .item .active{
+    background: #1fd81f;
+}
 
 .side-bar .menu .item i{
  margin-right: 15px;
@@ -122,7 +125,10 @@ color:#dc3545;
  align-items: center;
  padding: 50px;
 }
-
+.elem_center{
+  display: flex !important;
+  justify-content: center!important;
+}
 .main h1{
  color: black;
  font-size: 60px;

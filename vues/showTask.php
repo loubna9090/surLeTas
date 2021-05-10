@@ -117,7 +117,7 @@ echo "
        ".$task->getTopicTask() ."
       </div>
       <div class='modal-footer'>
-        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Fermer</button>
       </div>
     </div>
   </div>
@@ -138,26 +138,7 @@ echo "
 </div>
    </section>
 
-   <script type="text/javascript">
-   $(document).ready(function(){
-     //jquery for toggle sub menus
-     $('.sub-btn').click(function(){
-       $(this).next('.sub-menu').slideToggle();
-       $(this).find('.dropdown').toggleClass('rotate');
-     });
-
-     //jquery for expand and collapse the sidebar
-     $('.menu-btn').click(function(){
-       $('.side-bar').addClass('active');
-       $('.menu-btn').css("visibility", "hidden");
-     });
-
-     $('.close-btn').click(function(){
-       $('.side-bar').removeClass('active');
-       $('.menu-btn').css("visibility", "visible");
-     });
-   });
-   </script>
+   <script type="text/javascript" src="js/script.js"></script>
 
  </body>
 </html>

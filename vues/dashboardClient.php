@@ -34,7 +34,8 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
      <div class="close-btn">
        <i class="fas fa-times"></i>
      </div>
-     <div class="menu">
+     <div class="menu ">
+      <div class="elem_center"><img src="img/logo_Surletas_b.png" width="30%"></div>
        <div class="item active"><a href="index.php?uc=client&choix=bienvenu"><i class="fas fa-desktop"></i>Tableau de bord </a></div>
        <div class="item">
          <a class="sub-btn"><i class="fas fa-tasks "></i>Projets<i class="fas fa-angle-right dropdown"></i></a>
@@ -60,8 +61,8 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
    <section class="top_db"> 
 <div class="container">
   <div class="row">
-  <div class="col"><h1 class="title1 dis_center my-5">Bienvenu dans le tableau de bord  </h1> </div>
-  <div class="col">
+  <div class="col-md-8"><h1 class="title1 dis_center my-5">Bienvenu dans le tableau de bord  </h1> </div>
+  <div class="col-md-4">
     <button class="btn btn-ouf-tas_color my-5" ><a href="index.php?uc=client&choix=deconnexion"><i class="fas fa-power-off"></i>Déconnexion</a></button>
   </div>
 </div>
@@ -88,25 +89,20 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
     </tr>
   </thead>
   <tbody>
-                    <?php 
-
-
+ <?php 
       foreach($tasks as $task)
         {
-         
-/*         var_dump($task);*/
-          echo "
+        echo "
     <tr>
       <th scope='row'>".$task->getIdTask() ."</th>
       <td>".$task->getNameTask() ."</td>
       <td><button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target= '#exampleModal".$task->getIdTask() ."'>
   <i class='fas fa-eye'></i>
 </button> </td>
+
       <td>".$task->getDateTask() ."</td>
       <td>".$task->getStatusTask() ." &nbsp;<i class='fas fa-circle color-att'></i></td>
-
-    </tr>";
-echo "
+    </tr>
 <div class='modal fade' id='exampleModal".$task->getIdTask() ."' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
   <div class='modal-dialog'>
     <div class='modal-content'>
@@ -118,16 +114,12 @@ echo "
        ".$task->getTopicTask() ."
       </div>
       <div class='modal-footer'>
-        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Fermer</button>
       </div>
     </div>
   </div>
-</div>
-    " ;
-  
-    }
-        
-        ?>
+</div>";
+    }  ?>
   </tbody>
 </table>
 
@@ -139,26 +131,7 @@ echo "
 </div>
    </section>
 
-   <script type="text/javascript">
-   $(document).ready(function(){
-     //jquery for toggle sub menus
-     $('.sub-btn').click(function(){
-       $(this).next('.sub-menu').slideToggle();
-       $(this).find('.dropdown').toggleClass('rotate');
-     });
-
-     //jquery for expand and collapse the sidebar
-     $('.menu-btn').click(function(){
-       $('.side-bar').addClass('active');
-       $('.menu-btn').css("visibility", "hidden");
-     });
-
-     $('.close-btn').click(function(){
-       $('.side-bar').removeClass('active');
-       $('.menu-btn').css("visibility", "visible");
-     });
-   });
-   </script>
+   <script type="text/javascript" src="js/script.js"></script>
 
  </body>
 </html>

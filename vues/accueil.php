@@ -20,7 +20,7 @@
 <section id="need"> <!-- need -->
   <div class="container">
     <div class="row">
-      <div class="col pb-5"> <h3 class="tas_color"> Besoin de réaliser des tâches </h3> </div>
+      <div class="col pb-5"> <h3 class="tas_color"> Besoin de réaliser des projets </h3> </div>
     </div>
     <div class="row ">
       <div class="col-md-4 px-5">

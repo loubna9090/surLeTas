@@ -107,9 +107,9 @@ switch($choix)
 		break;
 
 // modification profil client
-		case'editProfilClient':
-		client::infoClient($_SESSION['client']);
-		include "vues/editProfilClient.php" ;
+		case'showProfil':
+		$clients=client::infoClient($_SESSION['client']);
+		include "vues/showProfil.php" ;
 		break;
 
 }

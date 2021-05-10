@@ -53,7 +53,7 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
            <a href="#" class="sub-item">Chat</a>
          </div>
        </div>
-       <div class="item"><a href="index.php?uc=client&choix=editProfilClient"><i class="fas fa-user"></i>Profil</a></div>
+       <div class="item"><a href="index.php?uc=client&choix=showProfil"><i class="fas fa-user"></i>Profil</a></div>
        <div class="item"><a href="#"><i class="fas fa-cog"></i>Paramétre</a></div>
        <div class="item"><a href="index.php?uc=client&choix=deconnexion"><i class="fas fa-power-off"></i>Déconnexion</a></div>
      </div>

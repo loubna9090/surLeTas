@@ -1,4 +1,4 @@
-
+ 
 <?php
 if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
   ?>
@@ -53,7 +53,7 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
          </div>
        </div>
 
-       <div class="item"><a href="index.php?uc=client&choix=editProfilClient"><i class="fas fa-user"></i>Profil</a></div>
+       <div class="item"><a href="index.php?uc=client&choix=showProfil"><i class="fas fa-user"></i>Profil</a></div>
        <div class="item"><a href="#"><i class="fas fa-cog"></i>Paramétre</a></div>
        <div class="item"><a href="index.php?uc=client&choix=deconnexion"><i class="fas fa-power-off"></i>Déconnexion</a></div>
      </div>
@@ -61,57 +61,44 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
    <section class="top_db"> 
 <div class="container">
   <div class="row">
-  <div class="col"><h1 class="title1 dis_center my-5">Modifer un projet   </h1> </div>
+  <div class="col"><h1 class="title1 dis_center my-5">Modification de profil  </h1> </div>
   <div class="col">
     <button class="btn btn-ouf-tas_color my-5" ><a href="index.php?uc=client&choix=deconnexion"><i class="fas fa-power-off"></i>Déconnexion</a></button>
   </div>
-</section>
    <section class="main">
 <div class="container">
-<div class="row center mt-5">
+
 <div class="col">
-	  <form class="bg_white"  method="POST" action="index.php?uc=client&choix=validEditTask" enctype="multipart/form-data">
-    <div class="mb-3">
-      <label for="formGroupExampleInput" class="form-label">Nom du Projet</label>
-   <input type="text" class="form-control" id="formGroupExampleInput"  name="nameTask" value="<?php echo $task->getNameTask() ?>">
-    </div>
+  <?php 
 
-    <div class="mb-3">
-      <label for="exampleFormControlTextarea1" class="form-label">Parlez-nous de votre projet</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="topicTask"  ><?php echo $task->getTopicTask() ?></textarea>
-    </div>
 
-    <div class="mb-3">
-      <label for="formFile" class="form-label">Document joint </label>
-
-      <input class="form-control" type="file" id="formFile" name="docTask"  value="<?php echo $task->getDocTask() ?>">
-    </div>
-     <div class="mb-3 col-md-12">
-      <label  class="form-label">Domaine du projet</label>
-      <select id="choice" class="form-select" aria-label="Default select example" required="required"   name="nameCat" >
-       <option value="0">selectionné</option>
-      <?php 
-      foreach($categories as $categorie)
+      foreach($clients as $client)
         {
+          echo "
 
-      echo "<option selected='selected' value='".$categorie->getIdCat() . "'>".$categorie->getNameCat() ."</option>";
-       } 
-      ?>
-    </select>
-    </div>
-   <input type="hidden" name="idTask" value="<?= $task->getIdTask() ?>">
-    <div class="mb-3 col-12">
-    <button type="submit" class="btn btn-tas_color">Enregistrer les modifications</button>
-  </div>
-    </div>  
-  </form>
+    <ul>
+      <li>Email: <span class='bold'> ".$client->getEmailClient()."</span></li>
+
+      <li>Nom: <span class='bold'>".$client->getLastNameClient() ."</span></li>
+      <li>Prénom: <span class='bold'>".$client->getLastNameClient()."</span></li>
+      <li>Téléphone: <span class='bold'>".$client->getPhoneClient() ."</span></li>
+      <li>Adresse: <span class='bold'>".$client->getAdressClient() ."</span></li>
+      <li>Pays: <span class='bold'>".$client->getCountryClient()."</span></li>
+      <li>Ville: <span class='bold'>".$client->getCityClient() ."</span></li>
+    </ul>
+
+ 
+   "; } ?>
 
 </div>
-</div>
+
 </div>
  </section>
- <script type="text/javascript" src="js/script.js"></script>
+
+  <script type="text/javascript" src="js/script.js"></script>
 
  </body>
 </html>
-<?php } ?>
+      <?php
+}
+  ?>

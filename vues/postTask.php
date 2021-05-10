@@ -40,12 +40,9 @@
       <?php 
       foreach($categories as $categorie)
         {
-
       echo "<option value='".$categorie->getIdCat() . "'>".$categorie->getNameCat() ."</option>";
        } 
       ?>
-      
-
     </select>
     </div>  
 

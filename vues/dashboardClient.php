@@ -66,9 +66,42 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
     <button class="btn btn-ouf-tas_color my-5" ><a href="index.php?uc=client&choix=deconnexion"><i class="fas fa-power-off"></i>Déconnexion</a></button>
   </div>
 </div>
+<div class="row inline pb-5">
+<div class="dis_center">
+  <div class=" card col-md-4 bg-bleu">
+    <div class="card-body">
+    <i class="fas fa-user white"></i> 
+    <p class="white">Nom et Prénom: </br> <span class="bold">
+      <?php foreach($clients as $client)
+        { echo  $client->getLastNameClient(). " " .$client->getLastNameClient();
+      } ?> </span>
+    </p></div>
+    </div>
+
+  <div class="card col-md-4 bg-red">
+    <div class="card-body">
+    <i class="fas fa-tasks white"></i>
+    <p class="white">Nombre des projets:</br> <span class="bold">
+    <?php echo $nbTask ;?> </span></p>
+  </div>
+  </div>
+
+  <div class="card col-md-4 bg-orang">
+    <div class="card-body">
+    <i class="fas fa-envelope white"></i>
+    <p class="white">Nombre des Messages:</br> <span class="bold"> 0 </span></p>
+  </div></div>
+
+</div>
+</div>
+
+
+</div>
    </section>
    <section class="main">
     <div class="container">
+
+      
 <div class="bg_white">     
   <div class="row">
  <div class="col-md-12 ">

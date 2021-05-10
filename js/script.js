@@ -17,8 +17,8 @@ $(document).ready(function(){
      });
    });
 
-function confirmation() {
+function confirmation(event) {
 var msg = "Êtes-vous sur de vouloir supprimer ce projet ?";
-if (confirm(msg))
-location.replace(tonscript.php);
+if (!confirm(msg))
+ event.preventDefault();
 }

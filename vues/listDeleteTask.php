@@ -104,7 +104,7 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
 </button> </td>
       <td>".$task->getDateTask() ."</td>
       <td>".$task->getStatusTask() ." &nbsp;<i class='fas fa-circle color-att'></i></td>
-      <td><a id='mywish' href='index.php?uc=client&choix=deleteTask&idTask=".$task->getIdTask() ."' class=' btn btn-danger' onClick='confirmation();' ><i class='fas center  fa-trash-alt'></i></a></td>
+      <td><a id='mywish' href='index.php?uc=client&choix=deleteTask&idTask=".$task->getIdTask() ."' class=' btn btn-danger' onClick='confirmation(event);' ><i class='fas center  fa-trash-alt'></i></a></td>
     </tr>";
 echo "
 <div class='modal fade' id='exampleModal".$task->getIdTask() ."' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>

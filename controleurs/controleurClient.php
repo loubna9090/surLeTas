@@ -33,8 +33,10 @@ switch($choix)
 		break;
 	// affichage des task dans le tableau de bord client
 	case "bienvenu":
-		client::infoClient($_SESSION['client']);
+
+		$clients=client::infoClient($_SESSION['client']);
         $tasks=task::taskClient($_SESSION['client']);
+        $nbTask= task::nbTask($_SESSION['client']);
         include ("vues/dashboardClient.php") ;
         break;
 

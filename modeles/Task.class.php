@@ -137,6 +137,16 @@ class Task{
         $nb=$req->execute();
         return $nb ;
     }
+
+    public static function nbTask($idClient)
+    {
+        $req=MonPdo::getInstance()->prepare("select count(idTask) from `task` WHERE idClient=:idClient") ;
+        
+        $req->execute(['idClient'=>$idClient]);
+        $lesResulats=$req->fetch();
+        return $lesResulats[0] ;
+        
+    }
  
 
 

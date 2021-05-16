@@ -17,7 +17,9 @@ switch($choix)
     	$rep=Client::verifier($_POST["emailClient"], md5($_POST["mdpClient"])) ; 
 		if($rep==true){
 			$_SESSION["autorisation"]="OK" ;
-			client::infoClient($_SESSION['client']);
+			$clients=client::infoClient($_SESSION['client']);
+        	$tasks=task::taskClient($_SESSION['client']);
+        	$nbTask= task::nbTask($_SESSION['client']);
 			$tasks=task::taskClient($_SESSION['client']);
 		  	include("vues/dashboardClient.php") ;
 			}

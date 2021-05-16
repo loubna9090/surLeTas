@@ -66,14 +66,14 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
     <button class="btn btn-ouf-tas_color my-5" ><a href="index.php?uc=client&choix=deconnexion"><i class="fas fa-power-off"></i>Déconnexion</a></button>
   </div>
 </div>
-<div class="row inline pb-5">
+<div class="row  pb-5">
 <div class="dis_center">
   <div class=" card col-md-4 bg-bleu">
     <div class="card-body">
     <i class="fas fa-user white"></i> 
     <p class="white">Nom et Prénom: </br> <span class="bold">
       <?php foreach($clients as $client)
-        { echo  $client->getLastNameClient(). " " .$client->getLastNameClient();
+        { echo  $client->getLastNameClient(). " " .$client->getFirstNameClient();
       } ?> </span>
     </p></div>
     </div>

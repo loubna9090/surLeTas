@@ -34,7 +34,7 @@ color:#dc3545;
 }
 .side-bar{
  background: black;
-/* backdrop-filter: blur(15px);*/
+z-index: 9999999;
  width: 290px;
  height: 100vh;
  position: fixed;

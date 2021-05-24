@@ -112,7 +112,7 @@ class Client{
 }
 
     // methode verification de connextion client 
-    public static function verifier($emailClient, $mdpClient){
+    public static function check($emailClient, $mdpClient){
         $req=MonPdo::getInstance()->prepare("select * from client where emailClient =:emailClient and mdpClient=:mdpClient") ;
         $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'client');
         $req->bindParam('emailClient', $emailClient);

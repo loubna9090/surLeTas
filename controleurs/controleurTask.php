@@ -9,9 +9,12 @@ switch($action)
         $categories=categorie::insertCat();
 		include ("vues/postTask.php") ;
 		break ;
+    case "taskOk":
+        include ("vues/taskOk.php");
+        break ;
 
 // insertion de la task et du client avec verification de lieuhtenticité de l'email et sa fiabilité 
-    	case "valideTask" :
+    case "valideTask" :
         $client=new client() ; 
         if (filter_var($_POST["emailClient"], FILTER_VALIDATE_EMAIL))  
          {
@@ -39,7 +42,7 @@ switch($action)
         if($rep==false){
             client::insertClient($client);
             task::add($task);
-            include ("vues/taskOk.php"); 
+            header("Location:./?uc=task&action=taskOk");
         }
         else{
             include ("vues/mailExist.php") ;

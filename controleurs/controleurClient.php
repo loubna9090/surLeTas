@@ -14,7 +14,7 @@ switch($choix)
 	// recupe id client 
 	$_SESSION['client']=client::recurpidClient($_POST["emailClient"]);
 	// verification connection 
-    	$rep=Client::verifier($_POST["emailClient"], md5($_POST["mdpClient"])) ; 
+    	$rep=Client::check($_POST["emailClient"], md5($_POST["mdpClient"])) ; 
 		if($rep==true){
 			$_SESSION["autorisation"]="OK" ;
 			$clients=client::infoClient($_SESSION['client']);
@@ -63,7 +63,7 @@ switch($choix)
         $categorie=new categorie();
         $categorie->setNameCat($_POST["nameCat"]) ;
         $client=new client();
-        $client->getIdClient($_SESSION['idClient']);
+        $client->getIdClient($_SESSION['client']);
         task::taskDbor($task);
         $tasks=task::taskClient($_SESSION['client']);
         include ("vues/showTask.php");

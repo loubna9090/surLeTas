@@ -68,7 +68,7 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
 </div>
 <div class="row  pb-5">
 <div class="dis_center">
-  <div class=" card col-md-4 bg-bleu">
+  <div class=" card col bg-bleu">
     <div class="card-body">
     <i class="fas fa-user white"></i> 
     <p class="white">Nom et Prénom: </br> <span class="bold">
@@ -78,7 +78,7 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
     </p></div>
     </div>
 
-  <div class="card col-md-4 bg-red">
+  <div class="card col bg-red">
     <div class="card-body">
     <i class="fas fa-tasks white"></i>
     <p class="white">Nombre des projets:</br> <span class="bold">
@@ -86,7 +86,7 @@ if(isset($_SESSION["autorisation"]) and $_SESSION["autorisation"]=="OK"){
   </div>
   </div>
 
-  <div class="card col-md-4 bg-orang">
+  <div class="card col bg-orang">
     <div class="card-body">
     <i class="fas fa-envelope white"></i>
     <p class="white">Nombre des Messages:</br> <span class="bold"> 0 </span></p>

@@ -19,7 +19,7 @@
     <header> 
     <nav class="navbar navbar-expand-lg navbar-light bg-black-menu">
   <div class="container-fluid">
-    <a class="navbar-brand mx-5" href="index.php"><img src="img/logo_Surletas_b.png" width="30%"></a>
+    <a class="navbar-brand " href="index.php"><img src="img/logo_Surletas_b.png" width="30%"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

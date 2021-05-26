@@ -68,15 +68,15 @@ z-index: 9999999;
  line-height: 60px;
 }
 .side-bar .menu .item a .active{
-    background: #1fd81f;
+    background: #27ad27;
 }
 
 .side-bar .menu .item a:hover{
- background: #1fd81f;
+ background: #27ad27;
  transition: 0.3s ease;
 }
 .side-bar .menu .item .active{
-    background: #1fd81f;
+    background: #27ad27;
 }
 
 .side-bar .menu .item i{
@@ -114,7 +114,7 @@ z-index: 9999999;
 
 .menu-btn{
  position: absolute;
- color:#1fd81f;
+ color:#27ad27;
  font-size: 30px;
  margin: 25px;
  top: 0;
@@ -155,17 +155,17 @@ h2.title2 {
 	text-align: center;
 	 }
 .btn-ouf-tas_color {
-    border: 2px solid #1fd81f;
+    border: 2px solid #27ad27;
     float: right;
 }
 .btn-ouf-tas_color a {
-    color: #1fd81f !important;
+    color: #27ad27 !important;
 }   
 .bg-bleu{
       background-color: #00a1ffb8;
     padding: 5px 25px;
     margin: 0 5%;
-    width: 350px;
+    width: 325px;
     border-radius: 10px;
 }
 .bg-red{

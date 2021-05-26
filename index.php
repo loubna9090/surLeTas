@@ -13,7 +13,7 @@ if(empty($_GET["uc"]))
 
 } 
 else {
-$uc=$_GET["uc"] ;    
+$uc= secure($_GET["uc"]) ;    
 }
 
 switch($uc){
@@ -28,6 +28,13 @@ switch($uc){
 	case "client" :
 	 include ("controleurs/controleurClient.php");
 	break;
+}
+
+function secure($data){
+$resultat=trim($data);
+$resultat=stripcslashes($data);
+$resultat=htmlspecialchars($data);
+return $resultat;
 }
 
 include("vues/footer.php");

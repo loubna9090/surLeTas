@@ -13,23 +13,23 @@ a:hover, a:visited, a:link, a:active
 }
 
 .tas_color{
-	color: #1fd81f !important;
+	color: #27ad27 !important;
 }
 .bold{
 	font-weight: bold;
 }
 .btn-outline-tas_color {
-    color: #1fd81f;
-    border-color: #1fd81f;
+    color: #27ad27;
+    border-color: #27ad27;
 }
 .btn-outline-tasc a{
-    color: #1fd81f;
+    color: #27ad27;
     padding: 6px 15px;
     border-radius: 5px;
-    border: 3px solid #1fd81f;
+    border: 3px solid #27ad27;
 }
 .btn-tas_color_m{
-    background-color: #1fd81f;
+    background-color: #27ad27;
     color: white;
     font-weight: bold;
     font-size: 1.1rem;
@@ -40,7 +40,7 @@ a:hover, a:visited, a:link, a:active
 }
 
 .btn-tas_color{
-	background-color: #1fd81f;
+	background-color: #27ad27;
 	color: white;
 	font-weight: bold;
     font-size: 1.3rem;
@@ -56,7 +56,7 @@ a:hover, a:visited, a:link, a:active
 .bg-black-menu {
     background-color: black;
     width: 100%;
-    border-bottom: 1px solid #1fd81f96;
+    border-bottom: 1px solid #27ad2796;
 }
 .bg-black {
     background-color: black;
@@ -67,7 +67,7 @@ a:hover, a:visited, a:link, a:active
 
 .navbar-light .navbar-toggler-icon {
     background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e);
-    background-color: #1fd81f;
+    background-color: #27ad27;
     border-radius: 7%;
 }
 
@@ -82,7 +82,7 @@ a:hover, a:visited, a:link, a:active
     margin: 0 15px;
 }
 .nav-btn .btn-outline-tas_color a{
-    color: #1fd81f;
+    color: #27ad27;
 }
 /*header{
     border-bottom: 1px solid #1b741b;
@@ -112,7 +112,7 @@ a:hover, a:visited, a:link, a:active
     font-weight: 100;
 }
 #slider .btn-tas_color {
-    background-color: #1fd81f;
+    background-color: #27ad27;
     color: white;
     font-size: 1.3rem;
     font-weight: 500;
@@ -160,7 +160,7 @@ a:hover, a:visited, a:link, a:active
 	list-style-type: none;
 }
 #services li:hover{
-color: #1fd81f !important;
+color: #27ad27 !important;
 }
 
 /*----------------------------------section footer*/
@@ -202,7 +202,7 @@ footer li{
 .form-control:focus {
     color: #212529;
     background-color: #fff;
-    border-color: #1fd81f;
+    border-color: #27ad27;
     outline: 0;
-    box-shadow: 0 0 0 0.25rem #1fd81f33;
+    box-shadow: 0 0 0 0.25rem #27ad2733;
 }

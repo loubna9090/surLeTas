@@ -18,27 +18,30 @@ switch($action)
         $client=new client() ; 
         if (filter_var($_POST["emailClient"], FILTER_VALIDATE_EMAIL))  
          {
-            $client->setEmailClient($_POST["emailClient"]) ;
+            $client->setEmailClient(secure($_POST["emailClient"])) ;
         }
         else{
             echo "L'email n'est pas valide";
             include ("vues/postTask.php") ;
         }
-        $client->setMdpClient(md5($_POST["mdpClient"])) ;
-        $client->setLastNameClient($_POST["lastNameClient"]) ;
-        $client->setFirstNameClient($_POST["firstNameClient"]) ;
-        $client->setAdressClient($_POST["adressClient"]) ;
-        $client->setPhoneClient($_POST["phoneClient"]) ;
-        $client->setCountryClient($_POST["countryClient"]) ;
-        $client->setCityClient($_POST["cityClient"]) ;
+        $client->setMdpClient(md5(secure($_POST["mdpClient"]))) ;
+        $client->setLastNameClient(secure($_POST["lastNameClient"])) ;
+        $client->setFirstNameClient(secure($_POST["firstNameClient"])) ;
+        $client->setAdressClient(secure($_POST["adressClient"])) ;
+        $client->setPhoneClient(secure($_POST["phoneClient"])) ;
+        $client->setCountryClient(secure($_POST["countryClient"])) ;
+        $client->setCityClient(secure($_POST["cityClient"])) ;
         $task= new task() ;
-        $task->setNameTask($_POST["nameTask"]) ;
-        $task->setTopicTask($_POST["topicTask"]) ;
+        $task->setNameTask(secure($_POST["nameTask"])) ;
+        $task->setTopicTask(secure($_POST["topicTask"])) ;
         $task->setDocTask(basename($_FILES["docTask"]["name"])) ; 
+        $name_doc = basename($_FILES["docTask"]['name']);
+        $chemin_destination = 'doc/' . $name_doc;
+        move_uploaded_file($_FILES['docTask']['tmp_name'], $chemin_destination);
         $categorie=new categorie();
-        $categorie->setNameCat($_POST["nameCat"]) ;
+        $categorie->setNameCat(secure($_POST["nameCat"])) ;
         
-        $rep=Client::exist($_POST["emailClient"]) ; 
+        $rep=Client::exist(secure($_POST["emailClient"])) ; 
         if($rep==false){
             client::insertClient($client);
             task::add($task);
